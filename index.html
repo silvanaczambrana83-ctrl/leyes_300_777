@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marco Legal Bolivia — Leyes 300 y 777</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2d6a4f;
+    --verde-claro: #d8f3dc;
+    --verde-medio: #95d5b2;
+    --verde-oscuro: #1b4332;
+    --verde-accent: #52b788;
+    --azul: #1a4a7a;
+    --azul-claro: #d0e8f7;
+    --azul-medio: #90c2e7;
+    --azul-oscuro: #0d2b4a;
+    --azul-accent: #3a86c7;
+    --blanco: #ffffff;
+    --gris-claro: #f8f9fa;
+    --texto: #1c1c1e;
+    --texto-suave: #555;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #f0f4f0;
+    color: var(--texto);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 68px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--texto);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-logo span.dot-verde { color: var(--verde); }
+  .nav-logo span.dot-azul { color: var(--azul); }
+
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tab-btn {
+    padding: 10px 28px;
+    border: 2px solid transparent;
+    border-radius: 40px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.3px;
+  }
+
+  .tab-btn.verde {
+    background: var(--verde-claro);
+    color: var(--verde-oscuro);
+    border-color: var(--verde-medio);
+  }
+  .tab-btn.verde.active, .tab-btn.verde:hover {
+    background: var(--verde);
+    color: #fff;
+    border-color: var(--verde);
+  }
+
+  .tab-btn.azul {
+    background: var(--azul-claro);
+    color: var(--azul-oscuro);
+    border-color: var(--azul-medio);
+  }
+  .tab-btn.azul.active, .tab-btn.azul:hover {
+    background: var(--azul);
+    color: #fff;
+    border-color: var(--azul);
+  }
+
+  /* ===== PAGES ===== */
+  .page { display: none; animation: fadeIn 0.4s ease; }
+  .page.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 64px 48px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .verde .hero-badge { background: var(--verde); color: #fff; }
+  .azul  .hero-badge { background: var(--azul);  color: #fff; }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.15;
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+
+  .verde .hero-title { color: var(--verde-oscuro); }
+  .azul  .hero-title { color: var(--azul-oscuro);  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--texto-suave);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 480px;
+  }
+
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stat-card {
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  }
+
+  .verde .stat-card { background: var(--verde-claro); border-left: 4px solid var(--verde); }
+  .azul  .stat-card { background: var(--azul-claro);  border-left: 4px solid var(--azul); }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .verde .stat-num { color: var(--verde); }
+  .azul  .stat-num { color: var(--azul);  }
+
+  .stat-label { font-size: 0.88rem; color: var(--texto-suave); font-weight: 600; line-height: 1.3; }
+
+  /* ===== DIVIDER ===== */
+  .section-divider {
+    height: 4px;
+    margin: 0 48px;
+    border-radius: 2px;
+  }
+  .verde .section-divider { background: linear-gradient(90deg, var(--verde), var(--verde-medio), transparent); }
+  .azul  .section-divider { background: linear-gradient(90deg, var(--azul),  var(--azul-medio),  transparent); }
+
+  /* ===== CONTENT GRID ===== */
+  .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 40px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .card {
+    border-radius: 20px;
+    padding: 28px;
+    background: #fff;
+    box-shadow: 0 3px 20px rgba(0,0,0,0.07);
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
+
+  .card-icon {
+    width: 40px; height: 3px;
+    border-radius: 2px;
+    margin-bottom: 18px;
+    font-size: 0;
+  }
+  .verde .card-icon { background: var(--verde); }
+  .azul  .card-icon { background: var(--azul);  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .verde .card-title { color: var(--verde-oscuro); }
+  .azul  .card-title { color: var(--azul-oscuro);  }
+
+  .card-text {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: var(--texto-suave);
+  }
+
+  /* ===== IMPACTO SECTION ===== */
+  .impacto-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px 48px;
+  }
+
+  .impacto-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: 24px;
+    padding-top: 16px;
+  }
+  .verde .impacto-header { color: var(--verde-oscuro); }
+  .azul  .impacto-header { color: var(--azul-oscuro);  }
+
+  .impacto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .impacto-item {
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .verde .impacto-item:nth-child(odd)  { background: var(--verde); color: #fff; }
+  .verde .impacto-item:nth-child(even) { background: var(--verde-claro); }
+
+  .azul .impacto-item:nth-child(odd)   { background: var(--azul); color: #fff; }
+  .azul .impacto-item:nth-child(even)  { background: var(--azul-claro);  }
+
+  .verde .impacto-item:nth-child(even) .impacto-num { color: var(--verde); }
+  .azul  .impacto-item:nth-child(even) .impacto-num { color: var(--azul);  }
+
+  .impacto-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .impacto-item:nth-child(odd) .impacto-num { color: rgba(255,255,255,0.9); }
+
+  .impacto-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .impacto-item:nth-child(odd) .impacto-title { color: rgba(255,255,255,0.8); }
+  .verde .impacto-item:nth-child(even) .impacto-title { color: var(--verde-oscuro); }
+  .azul  .impacto-item:nth-child(even) .impacto-title { color: var(--azul-oscuro);  }
+
+  .impacto-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .impacto-item:nth-child(odd) .impacto-desc { color: rgba(255,255,255,0.85); }
+  .verde .impacto-item:nth-child(even) .impacto-desc { color: var(--texto-suave); }
+  .azul  .impacto-item:nth-child(even) .impacto-desc { color: var(--texto-suave);  }
+
+  /* ===== PRINCIPIOS ===== */
+  .principios-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px 60px;
+  }
+
+  .principios-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .principio-tag {
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 2px solid;
+  }
+  .verde .principio-tag { background: var(--verde-claro); color: var(--verde-oscuro); border-color: var(--verde-medio); }
+  .azul  .principio-tag { background: var(--azul-claro);  color: var(--azul-oscuro);  border-color: var(--azul-medio); }
+
+  /* ===== FOOTER ===== */
+  .page-footer {
+    margin: 0 48px 48px;
+    border-radius: 20px;
+    padding: 28px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .verde .page-footer { background: var(--verde-oscuro); color: #fff; }
+  .azul  .page-footer { background: var(--azul-oscuro);  color: #fff; }
+
+  .footer-text { font-size: 0.9rem; opacity: 0.85; line-height: 1.6; }
+  .footer-badge {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    opacity: 0.4;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .hero { grid-template-columns: 1fr; padding: 40px 20px 32px; gap: 28px; }
+    .content-grid { padding: 24px 20px; gap: 16px; }
+    .impacto-grid { grid-template-columns: 1fr; }
+    .impacto-section, .principios-section { padding: 0 20px 40px; }
+    .section-divider { margin: 0 20px; }
+    .page-footer { margin: 0 20px 40px; }
+    .tab-btn { padding: 8px 16px; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    Marco Legal <span class="dot-verde">●</span> <span class="dot-azul">●</span> Bolivia
+  </div>
+  <div class="nav-tabs">
+    <button class="tab-btn verde active" onclick="showPage('ley300')">🌿 Ley N° 300</button>
+    <button class="tab-btn azul"         onclick="showPage('spie777')">📋 Ley N° 777 — SPIE</button>
+  </div>
+</nav>
+
+
+<!-- ============================================================ -->
+<!--  PÁGINA LEY 300 — MADRE TIERRA                              -->
+<!-- ============================================================ -->
+<div id="page-ley300" class="page verde active">
+
+  <div class="hero">
+    <div>
+      <div class="hero-badge">Ley N° 300 · 15 de octubre de 2012</div>
+      <h1 class="hero-title">Ley Marco de la Madre Tierra y Desarrollo Integral para Vivir Bien</h1>
+      <p class="hero-subtitle">
+        La ley boliviana más innovadora en materia ambiental: reconoce a la naturaleza como sujeto de derechos, establece el principio del <em>Vivir Bien</em> como horizonte del Estado y obliga a toda la sociedad a convivir en armonía con los sistemas de vida.
+      </p>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-card">
+        <div>
+          <div class="stat-num">17</div>
+          <div class="stat-label">Principios rectores que guían la relación<br>entre humanos y Madre Tierra</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">Títulos que cubren desde derechos hasta<br>institucionalidad y financiamiento</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-num">58</div>
+          <div class="stat-label">Artículos con obligaciones concretas para<br>el Estado, empresas y ciudadanos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="content-grid">
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">¿Qué es la Madre Tierra según la Ley?</div>
+      <p class="card-text">
+        Es el sistema viviente dinámico formado por todos los seres vivos, ecosistemas y sociedades, interrelacionados e interdependientes. Es considerada sagrada y tiene derechos propios como sujeto colectivo de interés público. No es un simple recurso, sino el hogar que sostiene toda forma de vida.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">¿Qué es el "Vivir Bien"?</div>
+      <p class="card-text">
+        Es el horizonte cultural alternativo al capitalismo, nacido en las cosmovisiones indígenas bolivianas. Implica vivir en complementariedad, armonía y equilibrio con la naturaleza y la sociedad, en equidad y solidaridad. No es un fin, sino una fase hacia una nueva civilización. Se alcanza colectiva y comunitariamente.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">Obligaciones del Estado</div>
+      <p class="card-text">
+        El Estado debe garantizar la regeneración de los sistemas de vida, incorporar el desarrollo integral en todas sus políticas, eliminar gradualmente la contaminación, promover la industrialización responsable, y crear condiciones para que todos los bolivianos puedan Vivir Bien en equilibrio con la naturaleza.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">Responsabilidad Empresarial y Ciudadana</div>
+      <p class="card-text">
+        Toda persona o empresa que cause daño a la Madre Tierra está obligada a restaurarla a sus condiciones previas. Los delitos contra la Madre Tierra son imprescriptibles y no permiten suspensión condicional de la pena. La ley exige instrumentos económicos de regulación ambiental para actividades de alto riesgo.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">Soberanía Alimentaria</div>
+      <p class="card-text">
+        La ley prioriza la agroecología y la agricultura familiar comunitaria, prohíbe los agrocombustibles y los organismos genéticamente modificados de centros de origen o diversidad. Protege el patrimonio genético boliviano, promueve el comercio justo y busca eliminar la especulación financiera en alimentos.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">Nueva Institucionalidad</div>
+      <p class="card-text">
+        Crea la <strong>Autoridad Plurinacional de la Madre Tierra</strong> para gestionar el cambio climático, el <strong>Fondo Plurinacional</strong> para financiar mitigación y adaptación, y el <strong>Consejo Plurinacional para Vivir Bien</strong> para el seguimiento participativo de la ley. Todo bajo un enfoque intercultural y descolonizador.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- IMPACTO -->
+  <div class="impacto-section">
+    <h2 class="impacto-header">Impacto Real en Bolivia y el Mundo</h2>
+    <div class="impacto-grid">
+
+      <div class="impacto-item">
+        <div class="impacto-num">1°</div>
+        <div class="impacto-title">Pionera mundial</div>
+        <div class="impacto-desc">Bolivia fue uno de los primeros países en elevar los derechos de la naturaleza a rango de ley nacional, inspirando debates internacionales.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">9</div>
+        <div class="impacto-title">Sectores regulados</div>
+        <div class="impacto-desc">Agua, bosques, minería, hidrocarburos, agricultura, energía, residuos, aire y cambio climático tienen bases y orientaciones específicas en la ley.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">17</div>
+        <div class="impacto-title">Principios rectores</div>
+        <div class="impacto-desc">Desde el principio precautorio hasta la justicia climática, la ley fija el marco ético que debe guiar toda decisión pública y privada en Bolivia.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">∞</div>
+        <div class="impacto-title">Delitos imprescriptibles</div>
+        <div class="impacto-desc">Los crímenes ambientales no tienen plazo de prescripción. El responsable del daño debe restaurar y el Estado puede exigir la devolución de costos.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">58</div>
+        <div class="impacto-title">Artículos de obligaciones</div>
+        <div class="impacto-desc">Normas concretas para el Estado, empresas y ciudadanos sobre uso del territorio, agua, energía, residuos y cambio climático.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">3</div>
+        <div class="impacto-title">Nuevas instituciones</div>
+        <div class="impacto-desc">La Autoridad Plurinacional, el Fondo de la Madre Tierra y el Consejo Plurinacional son estructuras creadas exclusivamente por esta ley para garantizar su aplicación.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRINCIPIOS -->
+  <div class="principios-section">
+    <h2 class="impacto-header" style="margin-bottom:16px;">Principios Clave de la Ley 300</h2>
+    <div class="principios-list">
+      <span class="principio-tag">Complementariedad de derechos</span>
+      <span class="principio-tag">No mercantilización ambiental</span>
+      <span class="principio-tag">Integralidad</span>
+      <span class="principio-tag">Principio Precautorio</span>
+      <span class="principio-tag">Garantía de Restauración</span>
+      <span class="principio-tag">Garantía de Regeneración</span>
+      <span class="principio-tag">Responsabilidad Histórica</span>
+      <span class="principio-tag">Prioridad de Prevención</span>
+      <span class="principio-tag">Participación Plural</span>
+      <span class="principio-tag">Agua para la Vida</span>
+      <span class="principio-tag">Solidaridad Humana</span>
+      <span class="principio-tag">Relación Armónica</span>
+      <span class="principio-tag">Justicia Social</span>
+      <span class="principio-tag">Justicia Climática</span>
+      <span class="principio-tag">Economía Plural</span>
+      <span class="principio-tag">Complementariedad y Equilibrio</span>
+      <span class="principio-tag">Diálogo de Saberes</span>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">
+      <strong>Ley N° 300 — Ley Marco de la Madre Tierra y Desarrollo Integral para Vivir Bien</strong><br>
+      Promulgada el 15 de octubre de 2012 · Estado Plurinacional de Bolivia · Presidente Evo Morales Ayma
+    </div>
+    <div class="footer-badge">LEY 300</div>
+  </div>
+
+</div><!-- /page-ley300 -->
+
+
+<!-- ============================================================ -->
+<!--  PÁGINA LEY 777 — SPIE                                      -->
+<!-- ============================================================ -->
+<div id="page-spie777" class="page azul" style="background:#eff6fb;">
+
+  <div class="hero">
+    <div>
+      <div class="hero-badge">Ley N° 777 · 21 de enero de 2016</div>
+      <h1 class="hero-title">Sistema de Planificación Integral del Estado — SPIE</h1>
+      <p class="hero-subtitle">
+        El instrumento que ordena y articula toda la planificación del Estado boliviano, desde el largo plazo hasta el nivel operativo anual, orientando la inversión pública y los recursos hacia el Vivir Bien con coherencia, transparencia y coordinación multinivel.
+      </p>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-card">
+        <div>
+          <div class="stat-num">25</div>
+          <div class="stat-label">Años de horizonte del Plan General<br>(PGDES) de largo plazo</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Subsistemas: Planificación · Inversión<br>Pública · Seguimiento y Evaluación</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <div class="stat-num">9</div>
+          <div class="stat-label">Tipos de entidades públicas obligadas<br>a usar el SPIE en toda Bolivia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="content-grid">
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">¿Qué es el SPIE?</div>
+      <p class="card-text">
+        Es el sistema unificado de planificación del Estado boliviano. Articula normas, metodologías y procedimientos para planificar el desarrollo integral en el largo, mediano y corto plazo. Todo órgano del Estado —legislativo, ejecutivo, judicial, electoral, municipios, empresas públicas y universidades— debe usarlo.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">Niveles de Planificación</div>
+      <p class="card-text">
+        <strong>Largo plazo (25 años):</strong> PGDES — visión política del país.<br>
+        <strong>Mediano plazo (5 años):</strong> PDES nacional, Planes Sectoriales (PSDI), Planes Territoriales (PTDI) y planes comunitarios indígenas (PGTC).<br>
+        <strong>Corto plazo:</strong> Planes Operativos Anuales (POA) de cada entidad pública.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">Quién lo Conduce</div>
+      <p class="card-text">
+        El <strong>Ministerio de Planificación del Desarrollo</strong> es el Órgano Rector. Establece normas, lineamientos y metodologías, verifica la coherencia de todos los planes con el PDES, coordina con los niveles territoriales y realiza la evaluación integral de resultados.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">Inversión y Presupuesto Alineados</div>
+      <p class="card-text">
+        El Subsistema de Inversión Pública y Financiamiento Externo (SIPFE) reemplaza al antiguo SNIP. Toda inversión pública debe registrarse y estar enmarcada en los planes del SPIE. Los presupuestos se priorizan según las metas del Plan de Desarrollo Económico y Social vigente.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">Seguimiento en Tiempo Real</div>
+      <p class="card-text">
+        El Subsistema SEIP permite monitorear el avance de metas, resultados y acciones en tiempo real a través de la Plataforma PIP-SPIE. Genera reportes anuales, alerta temprana sobre incumplimientos y evaluaciones de medio término que se presentan directamente al Presidente del Estado.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon"></div>
+      <div class="card-title">Plataformas Tecnológicas</div>
+      <p class="card-text">
+        El SPIE opera con tres plataformas digitales: <strong>PIP-SPIE</strong> (planificación integrada en línea), <strong>INFO-SPIE</strong> (datos estadísticos, cartográficos y geográficos de todas las entidades) y <strong>PREGIPS</strong> (registro de programas sociales y beneficiarios para reducir la pobreza).
+      </p>
+    </div>
+
+  </div>
+
+  <!-- IMPACTO -->
+  <div class="impacto-section">
+    <h2 class="impacto-header">Impacto del SPIE en la Gestión Pública</h2>
+    <div class="impacto-grid">
+
+      <div class="impacto-item">
+        <div class="impacto-num">1</div>
+        <div class="impacto-title">Sistema unificado</div>
+        <div class="impacto-desc">Antes cada entidad planificaba de forma aislada. El SPIE crea un único sistema coherente para toda la administración pública boliviana.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">180</div>
+        <div class="impacto-title">Días para formular planes</div>
+        <div class="impacto-desc">Gobernaciones y municipios tienen plazos definidos tras aprobarse el PDES. Los planes deben concordar con el nivel nacional o la Contraloría interviene.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">3</div>
+        <div class="impacto-title">Plataformas digitales</div>
+        <div class="impacto-desc">PIP-SPIE, INFO-SPIE y PREGIPS articulan en tiempo real toda la información de planificación, inversión y programas sociales del Estado.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">9</div>
+        <div class="impacto-title">Tipos de entidades obligadas</div>
+        <div class="impacto-desc">Órganos ejecutivo, legislativo, judicial, electoral, municipios, gobernaciones, universidades públicas y empresas del Estado deben planificar bajo el SPIE.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">25</div>
+        <div class="impacto-title">Años de visión de país</div>
+        <div class="impacto-desc">El PGDES orienta la planificación de largo plazo. Es el plan de mayor jerarquía y todos los demás planes deben derivarse de él.</div>
+      </div>
+
+      <div class="impacto-item">
+        <div class="impacto-num">2025</div>
+        <div class="impacto-title">Agenda Patriótica</div>
+        <div class="impacto-desc">El SPIE es el instrumento operativo para alcanzar los 13 pilares de la Bolivia Libre y Soberana del Bicentenario.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRINCIPIOS -->
+  <div class="principios-section">
+    <h2 class="impacto-header" style="margin-bottom:16px;">Fundamentos del SPIE</h2>
+    <div class="principios-list">
+      <span class="principio-tag">Planificación con Integralidad</span>
+      <span class="principio-tag">Complementariedad</span>
+      <span class="principio-tag">Coordinación multinivel</span>
+      <span class="principio-tag">Respeto de Derechos</span>
+      <span class="principio-tag">Transparencia</span>
+      <span class="principio-tag">PGDES — Largo Plazo</span>
+      <span class="principio-tag">PDES — Mediano Plazo</span>
+      <span class="principio-tag">PTDI — Territorial</span>
+      <span class="principio-tag">PGTC — Comunitario</span>
+      <span class="principio-tag">PEI — Institucional</span>
+      <span class="principio-tag">POA — Anual</span>
+      <span class="principio-tag">SIPFE — Inversión Pública</span>
+      <span class="principio-tag">SEIP — Seguimiento</span>
+      <span class="principio-tag">PIP-SPIE — Plataforma digital</span>
+      <span class="principio-tag">INFO-SPIE — Datos abiertos</span>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">
+      <strong>Ley N° 777 — Ley del Sistema de Planificación Integral del Estado (SPIE)</strong><br>
+      Promulgada el 21 de enero de 2016 · Estado Plurinacional de Bolivia · Presidente Evo Morales Ayma
+    </div>
+    <div class="footer-badge">LEY 777</div>
+  </div>
+
+</div><!-- /page-spie777 -->
+
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+    document.getElementById('page-' + page).classList.add('active');
+
+    if (page === 'ley300') {
+      document.querySelector('.tab-btn.verde').classList.add('active');
+      document.body.style.background = '#f0f4f0';
+    } else {
+      document.querySelector('.tab-btn.azul').classList.add('active');
+      document.body.style.background = '#eff6fb';
+    }
+  }
+</script>
+
+</body>
+</html>
